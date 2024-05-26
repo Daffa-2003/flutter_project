@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/methods/product.dart';
 
+
+// ignore: must_be_immutable
 class UpdateData extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
   var product;

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/methods/api.dart';
 import 'package:flutter_project/pages/home_page.dart';
 import 'package:flutter_project/pages/login_page.dart';
-import 'package:flutter_project/pages/user_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DashboardPage extends StatefulWidget {
