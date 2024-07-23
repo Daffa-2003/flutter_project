@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({Key? key}) : super(key: key);
+  const ItemPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class ItemPage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -19,17 +19,17 @@ class ItemPage extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          color: Color(0XFFF5F9FD),
+                          color: const Color(0XFFF5F9FD),
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
-                                color: Color(0xFF475269).withOpacity(0.3),
+                                color: const Color(0xFF475269).withOpacity(0.3),
                                 blurRadius: 10,
                                 spreadRadius: 1)
                           ]),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back,
                         size: 30,
                         color: Color(0xFF475269),
@@ -37,17 +37,17 @@ class ItemPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                        color: Color(0XFFF5F9FD),
+                        color: const Color(0XFFF5F9FD),
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-                              color: Color(0xFF475269).withOpacity(0.3),
+                              color: const Color(0xFF475269).withOpacity(0.3),
                               blurRadius: 10,
                               spreadRadius: 1)
                         ]),
-                    child: Icon(
+                    child: const Icon(
                       Icons.favorite_border,
                       size: 30,
                       color: Colors.redAccent,

@@ -74,7 +74,7 @@ class _ProductPageState extends State<ProductPage> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    products[i].type + " " + products[i].kategori,
+                    "${products[i].type} ${products[i].kategori}",
                     style: TextStyle(
                       color: const Color(0XFF475269).withOpacity(0.7),
                       fontSize: 15,
@@ -87,8 +87,8 @@ class _ProductPageState extends State<ProductPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Rp. " + products[i].harga,
-                        style: TextStyle(
+                        "Rp. ${products[i].harga}",
+                        style: const TextStyle(
                             color: Colors.redAccent,
                             fontSize: 20,
                             fontWeight: FontWeight.w500),

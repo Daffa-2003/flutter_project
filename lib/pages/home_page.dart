@@ -75,16 +75,15 @@ class _HomeState extends State<Home> {
         .postRequest(route: '/getData/$id', data: {'id': id.toString()});
     if (response.statusCode == 200) {
       final responseData = jsonDecode(response.body);
+
       if (responseData['status'] == 200) {
         final product = Product.formJson(responseData['data']);
         if (!mounted) return;
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => UpdateData(product: product),
-          ),
-        );
+      } else {
+        print('Error: ${responseData['message']}');
       }
+    } else {
+      print('Error: ${response.body}');
     }
   }
 
@@ -95,7 +94,11 @@ class _HomeState extends State<Home> {
       final responseData = jsonDecode(response.body);
       if (responseData['status'] == 200) {
         getProduct();
+      } else {
+        print('Error: ${responseData['message']}');
       }
+    } else {
+      print('Error: ${response.body}');
     }
   }
 
@@ -157,9 +160,9 @@ class _HomeState extends State<Home> {
                               height: 80,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
-                                image: const DecorationImage(
+                                image: DecorationImage(
                                   image: NetworkImage(
-                                      'https://w7.pngwing.com/pngs/885/113/png-transparent-brown-trouser-khaki-trousers-mens-pant-active-pants-beige-clothing-thumbnail.png'), // Ganti dengan path gambar produk dari objek Product
+                                      'http://localhost/storage/product/${product.foto}'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -207,6 +210,13 @@ class _HomeState extends State<Home> {
                                   icon: const Icon(Icons.brush_outlined),
                                   onPressed: () {
                                     getProductById(product.id);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            UpdateData(product: product),
+                                      ),
+                                    );
                                   },
                                 ),
                                 IconButton(

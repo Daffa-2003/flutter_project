@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_project/methods/api.dart';
 
 import 'package:flutter_project/pages/login_page.dart';
@@ -11,7 +10,7 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -39,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
     if (response['status'] == 200) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ),
       );
     }
@@ -60,13 +59,13 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         backgroundColor: HexColor("#283B71"),
         body: ProgressHUD(
+          inAsyncCall: isApiCallProcess,
+          opacity: 0.3,
+          key: UniqueKey(),
           child: Form(
             key: globalFormKey,
             child: _loginUI(context),
           ),
-          inAsyncCall: isApiCallProcess,
-          opacity: 0.3,
-          key: UniqueKey(),
         ),
       ),
     );
@@ -123,20 +122,20 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: nameController, // Mengatur controller
               decoration: InputDecoration(
                 labelText: "Name",
-                labelStyle: TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Colors.white),
                 hintText: "Enter your name",
-                prefixIcon: Icon(Icons.person, color: Colors.white),
+                prefixIcon: const Icon(Icons.person, color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               ),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
 
               onChanged: (value) {
                 // Lakukan sesuatu setiap kali nilai input berubah
@@ -156,20 +155,20 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: emailController, // Mengatur controller
               decoration: InputDecoration(
                 labelText: "Email",
-                labelStyle: TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Colors.white),
                 hintText: "Enter your email",
-                prefixIcon: Icon(Icons.mail, color: Colors.white),
+                prefixIcon: const Icon(Icons.mail, color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               ),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
 
               onChanged: (value) {
                 // Lakukan sesuatu setiap kali nilai input berubah
@@ -191,12 +190,12 @@ class _RegisterPageState extends State<RegisterPage> {
               },
               obscureText: hidePassword,
               controller: passwordController,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: "Password",
-                labelStyle: TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Colors.white),
                 hintText: "Enter your password",
-                prefixIcon: Icon(Icons.lock, color: Colors.white),
+                prefixIcon: const Icon(Icons.lock, color: Colors.white),
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
@@ -211,11 +210,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -232,20 +231,20 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: alamatController, // Mengatur controller
               decoration: InputDecoration(
                 labelText: "alamat",
-                labelStyle: TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Colors.white),
                 hintText: "Enter your Alamat",
-                prefixIcon: Icon(Icons.map, color: Colors.white),
+                prefixIcon: const Icon(Icons.map, color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               ),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
 
               onChanged: (value) {
                 // Lakukan sesuatu setiap kali nilai input berubah
@@ -265,20 +264,20 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: tlpController, // Mengatur controller
               decoration: InputDecoration(
                 labelText: "tlp",
-                labelStyle: TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Colors.white),
                 hintText: "Enter your tlp",
-                prefixIcon: Icon(Icons.call, color: Colors.white),
+                prefixIcon: const Icon(Icons.call, color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               ),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
 
               onChanged: (value) {
                 // Lakukan sesuatu setiap kali nilai input berubah
@@ -332,10 +331,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 onPressed: () {
                   register();
                 },
-                child: Text(
-                  'Register',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _isHovering
                       ? Colors.blue[200]
@@ -345,6 +340,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                ),
+                child: const Text(
+                  'Register',
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
             ),

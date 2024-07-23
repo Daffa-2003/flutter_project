@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_project/methods/api.dart';
 import 'package:flutter_project/pages/Dashboard__page.dart';
 import 'package:flutter_project/pages/register_page.dart';
@@ -45,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
       prefs.setBool('isLoggedIn', true);
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => DashboardPage(),
+          builder: (context) => const DashboardPage(),
         ),
       );
     } else {
@@ -71,13 +69,13 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         backgroundColor: HexColor("#283B71"),
         body: ProgressHUD(
+          inAsyncCall: isApiCallProcess,
+          opacity: 0.3,
+          key: UniqueKey(),
           child: Form(
             key: globalFormKey,
             child: _loginUI(context),
           ),
-          inAsyncCall: isApiCallProcess,
-          opacity: 0.3,
-          key: UniqueKey(),
         ),
       ),
     );
@@ -244,10 +242,6 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   login();
                 },
-                child: Text(
-                  'Login',
-                  style: const TextStyle(fontSize: 18, color: Colors.black),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _isHovering
                       ? Colors.blue[200]
@@ -257,6 +251,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                ),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
             ),

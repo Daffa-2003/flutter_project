@@ -44,6 +44,7 @@ class _DashboardPageState extends State<DashboardPage> {
       'Coming Soon',
       style: TextStyle(fontSize: 24),
     ),
+    // UserPage(),
     Text(
       'User Page',
       style: TextStyle(fontSize: 24),
