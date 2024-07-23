@@ -77,6 +77,7 @@ class _HomeState extends State<Home> {
       final responseData = jsonDecode(response.body);
 
       if (responseData['status'] == 200) {
+        // ignore: unused_local_variable
         final product = Product.formJson(responseData['data']);
         if (!mounted) return;
       } else {
